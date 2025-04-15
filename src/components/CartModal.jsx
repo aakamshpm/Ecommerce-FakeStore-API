@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   addToCart,
-  removeAnItemFromCart,
-  // removeFromCart,
+  reduceItemFromCart,
+  removeItemFromCart,
 } from "../slices/cartSlice";
+import { Link } from "react-router-dom";
 
 const CartModal = ({ cartItems, onClose }) => {
   const { data, isError, error, isLoading, isFetching, refetch } =
@@ -61,7 +62,7 @@ const CartModal = ({ cartItems, onClose }) => {
                 <div className="flex items-center gap-2 mt-2">
                   <button
                     className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
-                    onClick={() => dispatch(removeAnItemFromCart(product.id))}
+                    onClick={() => dispatch(reduceItemFromCart(product.id))}
                   >
                     -
                   </button>
@@ -76,7 +77,7 @@ const CartModal = ({ cartItems, onClose }) => {
                   </button>
                   <button
                     className="ml-auto text-xs text-red-500 underline cursor-pointer"
-                    // onClick={() => dispatch(removeFromCart(product.id))}
+                    onClick={() => dispatch(removeItemFromCart(product.id))}
                   >
                     Remove
                   </button>
@@ -92,9 +93,19 @@ const CartModal = ({ cartItems, onClose }) => {
             <p className="font-medium">Total:</p>
             <p className="font-semibold">${totalPrice.toFixed(2)}</p>
           </div>
-          <button className="w-full bg-black text-white py-2 rounded hover:opacity-90 transition cursor-pointer">
-            Checkout
-          </button>
+          <Link to="/checkout">
+            <button
+              onClick={onClose}
+              disabled={totalPrice === 0}
+              className={`w-full py-2 rounded transition ${
+                totalPrice === 0
+                  ? "bg-black text-white cursor-not-allowed opacity-40"
+                  : "bg-black text-white hover:opacity-90 cursor-pointer"
+              }`}
+            >
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

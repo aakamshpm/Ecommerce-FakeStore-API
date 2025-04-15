@@ -18,6 +18,9 @@ import Clothes from "./pages/Clothes.jsx";
 import Furniture from "./pages/Furniture.jsx";
 import Electronics from "./pages/Electronics.jsx";
 import Shoes from "./pages/Shoes.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import OrderPlaced from "./pages/OrderPlaced.jsx";
+import Orders from "./pages/Orders.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +32,9 @@ const router = createBrowserRouter(
         <Route path="/furniture" element={<Furniture />} />
         <Route path="/electronics" element={<Electronics />} />
         <Route path="/shoes" element={<Shoes />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-placed" element={<OrderPlaced />} />
+        <Route path="/my-orders" element={<Orders />} />
         <Route path="/product/:id" element={<ProductDetails />} />
 
         <Route path="*" element={<NotFound />} />
