@@ -1,0 +1,38 @@
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { SnackbarProvider } from "notistack";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import store from "./store.js";
+import App from "./App.jsx";
+import "./index.css";
+import Home from "./pages/Home.jsx";
+import PubilcRoutes from "./routes/PubilcRoutes.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      {/* Public routes contains URLs accessible to everyone */}
+      <Route element={<PubilcRoutes />}>
+        <Route index element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Route>
+  )
+);
+
+createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <SnackbarProvider>
+      <RouterProvider router={router} />
+    </SnackbarProvider>
+  </Provider>
+);
