@@ -6,7 +6,7 @@ import ProductModal from "../components/ProductModal";
 import Loader from "./Loader";
 import Error from "./Error";
 
-const ProductsDisplay = ({ data, isError, isLoading, error }) => {
+const ProductsDisplay = ({ data, isError, isLoading, isFetching, error }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // fetch cart data

@@ -3,7 +3,8 @@ import ProductsDisplay from "../components/ProductsDisplay";
 
 const Home = () => {
   // fetch all products
-  const { data, isError, error, isLoading, refetch } = useGetAllProductsQuery();
+  const { data, isError, error, isLoading, isFetching, refetch } =
+    useGetAllProductsQuery();
 
   return (
     <ProductsDisplay
@@ -11,6 +12,7 @@ const Home = () => {
       isError={isError}
       error={error}
       isLoading={isLoading}
+      isFetching={isFetching}
     />
   );
 };
