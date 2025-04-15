@@ -22,8 +22,8 @@ const Navbar = () => {
       label: "Furniture",
     },
     {
-      to: "/toys",
-      label: "Toys",
+      to: "/shoes",
+      label: "Shoes",
     },
   ];
 

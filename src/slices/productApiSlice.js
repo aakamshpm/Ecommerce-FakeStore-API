@@ -2,7 +2,7 @@ import { apiSlice } from "./apiSlice";
 
 const PRODUCT_URl = "/products";
 
-const adminApiSlice = apiSlice.injectEndpoints({
+const productApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     //get all products
     getAllProducts: builder.query({
@@ -22,4 +22,5 @@ const adminApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetAllProductsQuery, useGetProductByIdQuery } = adminApiSlice;
+export const { useGetAllProductsQuery, useGetProductByIdQuery } =
+  productApiSlice;

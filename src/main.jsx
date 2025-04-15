@@ -14,6 +14,10 @@ import Home from "./pages/Home.jsx";
 import PubilcRoutes from "./routes/PubilcRoutes.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
+import Clothes from "./pages/Clothes.jsx";
+import Furniture from "./pages/Furniture.jsx";
+import Electronics from "./pages/Electronics.jsx";
+import Shoes from "./pages/Shoes.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +25,10 @@ const router = createBrowserRouter(
       {/* Public routes contains URLs accessible to everyone */}
       <Route element={<PubilcRoutes />}>
         <Route index element={<Home />} />
+        <Route path="/clothes" element={<Clothes />} />
+        <Route path="/furniture" element={<Furniture />} />
+        <Route path="/electronics" element={<Electronics />} />
+        <Route path="/shoes" element={<Shoes />} />
         <Route path="/product/:id" element={<ProductDetails />} />
 
         <Route path="*" element={<NotFound />} />
