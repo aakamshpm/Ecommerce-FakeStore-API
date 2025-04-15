@@ -1,10 +1,16 @@
 import { FiPlusCircle } from "react-icons/fi";
 import { TiTick } from "react-icons/ti";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { addToCart, toggleCart } from "../slices/cartSlice";
 
 const ProductWidget = ({ product, isInCart, setSelectedProduct }) => {
   const dispatch = useDispatch();
+
+  const handleAddCart = (e) => {
+    e.stopPropagation();
+    dispatch(toggleCart());
+    dispatch(addToCart(product.id));
+  };
 
   return (
     <div
@@ -24,10 +30,7 @@ const ProductWidget = ({ product, isInCart, setSelectedProduct }) => {
             color="black"
             size={30}
             className="absolute top-2 right-2 cursor-pointer hover:scale-105"
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(addToCart(product.id));
-            }}
+            onClick={handleAddCart}
           />
         ) : (
           <TiTick

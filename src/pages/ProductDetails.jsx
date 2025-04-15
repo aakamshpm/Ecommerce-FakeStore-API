@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../slices/productApiSlice";
 import { FiChevronLeft, FiChevronRight, FiPlusCircle } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { addToCart, toggleCart } from "../slices/cartSlice";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import { TiTick } from "react-icons/ti";
@@ -37,6 +37,12 @@ const ProductDetails = () => {
       setCurrentState((prev) =>
         prev === product?.images.length - 1 ? 0 : prev + 1
       );
+  };
+
+  const handleAddCart = (e) => {
+    e.stopPropagation();
+    dispatch(toggleCart());
+    dispatch(addToCart(product.id));
   };
 
   if (isLoading) return <Loader />;
@@ -89,10 +95,7 @@ const ProductDetails = () => {
               color="black"
               size={30}
               className="cursor-pointer hover:scale-105"
-              onClick={(e) => {
-                e.stopPropagation();
-                dispatch(addToCart(id));
-              }}
+              onClick={handleAddCart}
             />
 
             <p className="">Add to Cart</p>

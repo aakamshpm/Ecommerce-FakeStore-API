@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductWidget from "./ProductWidget";
 import Search from "./Search";
 import ProductModal from "../components/ProductModal";
@@ -8,16 +8,36 @@ import Error from "./Error";
 
 const ProductsDisplay = ({ data, isError, isLoading, isFetching, error }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // fetch cart data
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems, showCart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  // state to handle ProductModal
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const onSearch = () => {
-    console.log(searchTerm);
+    if (!data || !searchTerm.trim()) return;
+
+    const search = searchTerm.toLowerCase();
+    const filtered = data.filter((product) => {
+      const titleMatch = product.title.toLowerCase().includes(search);
+      const categoryMatch = product.category.name
+        .toLowerCase()
+        .includes(search);
+      return titleMatch || categoryMatch;
+    });
+
+    setFilteredProducts(filtered);
   };
+
+  // filters data automatically when searched or loadec
+  useEffect(() => {
+    if (!searchTerm.trim()) {
+      setFilteredProducts(data || []);
+    } else {
+      onSearch();
+    }
+  }, [searchTerm, data]);
 
   if (isLoading) {
     return <Loader />;
@@ -36,7 +56,7 @@ const ProductsDisplay = ({ data, isError, isLoading, isFetching, error }) => {
       />
 
       <div className="grid grid-cols-4 justify-center mt-8 w-[60em] place-items-center">
-        {data?.map((product, i) => {
+        {filteredProducts?.map((product, i) => {
           const isInCart = !!cartItems[product.id];
           return (
             <ProductWidget

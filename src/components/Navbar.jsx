@@ -1,8 +1,12 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FiShoppingCart } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCart } from "../slices/cartSlice";
 
 const Navbar = () => {
   const location = useLocation();
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const navLinks = [
     {
@@ -55,7 +59,13 @@ const Navbar = () => {
         <p className="font-extralight text-sm">dummy@gmail.com</p>
         <Link to="/my-orders">My Orders</Link>
         <Link to="/my-account">My Account</Link>
-        Cart
+        <div
+          onClick={() => dispatch(toggleCart())}
+          className="flex gap-2 items-center cursor-pointer"
+        >
+          <FiShoppingCart size={23} />
+          <p className="text-base">{Object.keys(cartItems).length}</p>
+        </div>
       </div>
     </div>
   );
