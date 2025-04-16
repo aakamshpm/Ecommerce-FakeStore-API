@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { SnackbarProvider } from "notistack";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -28,7 +27,6 @@ import Register from "./pages/Register.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      {/* Public routes contains URLs accessible to everyone */}
       <Route index element={<Home />} />
       <Route path="/clothes" element={<Clothes />} />
       <Route path="/furniture" element={<Furniture />} />
@@ -40,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/my-account" element={<MyAccount />} />
 
+      {/* Login and register routes are not accessible if user is logged in  */}
       <Route element={<PubilcRoutes />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -52,8 +51,6 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <SnackbarProvider>
-      <RouterProvider router={router} />
-    </SnackbarProvider>
+    <RouterProvider router={router} />
   </Provider>
 );
