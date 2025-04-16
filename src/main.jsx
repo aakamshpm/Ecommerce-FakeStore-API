@@ -21,24 +21,27 @@ import Shoes from "./pages/Shoes.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import OrderPlaced from "./pages/OrderPlaced.jsx";
 import Orders from "./pages/Orders.jsx";
+import Login from "./pages/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       {/* Public routes contains URLs accessible to everyone */}
-      <Route element={<PubilcRoutes />}>
-        <Route index element={<Home />} />
-        <Route path="/clothes" element={<Clothes />} />
-        <Route path="/furniture" element={<Furniture />} />
-        <Route path="/electronics" element={<Electronics />} />
-        <Route path="/shoes" element={<Shoes />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order-placed" element={<OrderPlaced />} />
-        <Route path="/my-orders" element={<Orders />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
+      <Route index element={<Home />} />
+      <Route path="/clothes" element={<Clothes />} />
+      <Route path="/furniture" element={<Furniture />} />
+      <Route path="/electronics" element={<Electronics />} />
+      <Route path="/shoes" element={<Shoes />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/order-placed" element={<OrderPlaced />} />
+      <Route path="/my-orders" element={<Orders />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
 
-        <Route path="*" element={<NotFound />} />
+      <Route element={<PubilcRoutes />}>
+        <Route path="/login" element={<Login />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
