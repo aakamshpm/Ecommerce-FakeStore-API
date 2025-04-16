@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={item.to}
                 to={item.to}
-                className={`hover:underline ${
+                className={`hover:underline underline-offset-8 ${
                   location.pathname === item.to
                     ? "underline underline-offset-8"
                     : ""

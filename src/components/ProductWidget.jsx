@@ -20,7 +20,7 @@ const ProductWidget = ({ product, isInCart, setSelectedProduct }) => {
       <div className="relative w-full h-[200px]">
         <img
           className="w-full h-full object-cover rounded-md"
-          src={product.category.image}
+          src={product.images[0]}
           alt=""
         />
 
