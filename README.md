@@ -33,7 +33,7 @@
    Visit `http://localhost:5173` to start using it.
 
 4. **Firebase login:**
-   To log in, use the following credentials:
+   To log in, you can use the following credentials or by Registering a new account:
 
    Email: shopitest@gmail.com
 

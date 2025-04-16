@@ -23,6 +23,7 @@ import OrderPlaced from "./pages/OrderPlaced.jsx";
 import Orders from "./pages/Orders.jsx";
 import Login from "./pages/Login.jsx";
 import MyAccount from "./pages/MyAccount.jsx";
+import Register from "./pages/Register.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
 
       <Route element={<PubilcRoutes />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

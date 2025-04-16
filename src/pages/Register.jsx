@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth"; // ✅ Correct import
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { setCredentials } from "../slices/authSlice";
 import { useDispatch } from "react-redux";
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -18,12 +18,16 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await signInWithEmailAndPassword(auth, email, password);
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
       const user = response.user;
       const idToken = await user.getIdToken();
 
-      // set token and user details in local storage
+      // Store token and user in localStorage
       localStorage.setItem("token", idToken);
       localStorage.setItem(
         "user",
@@ -39,7 +43,7 @@ const Login = () => {
 
       navigate("/");
     } catch (err) {
-      setError("Invalid email or password");
+      setError("Failed to register. Email may already be in use.");
     }
   };
 
@@ -47,7 +51,7 @@ const Login = () => {
     <div className="min-h-screen font-[Poppins] flex items-center justify-center bg-white px-4">
       <div className="w-full max-w-md border border-black rounded-lg shadow p-6">
         <h1 className="text-2xl font-bold text-black mb-6 text-center">
-          Login
+          Register
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -81,13 +85,13 @@ const Login = () => {
             type="submit"
             className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
           >
-            Login
+            Register
           </button>
 
           <p className="text-sm">
-            New to Shopi?{" "}
-            <Link className="text-blue-500 underline" to="/register">
-              Register Now
+            Already have an account?{" "}
+            <Link className="text-blue-500 underline" to="/login">
+              Login Now
             </Link>
           </p>
         </form>
@@ -96,4 +100,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
