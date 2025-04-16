@@ -2,7 +2,6 @@ import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const ProductModal = ({ product, onClose }) => {
-  console.log(product);
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
       <div className="bg-white rounded-lg p-4 sm:p-6 w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] max-h-[90%] overflow-y-auto relative shadow-lg">
