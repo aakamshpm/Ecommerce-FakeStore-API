@@ -2,6 +2,13 @@
 
 **Shopi** is an e-commerce platform built with **React** and **Vite**, using **Firebase Authentication** for login and **Platzi Fake Store API** for products. It’s deployed on **Vercel**.
 
+## Features
+
+- Browse products fetched from the Platzi Fake Store API.
+- Login using Firebase Authentication (Email and Password).
+- Add products to the cart.
+- Simple and responsive design.
+
 ## Setup
 
 1. **Clone the repo:**
