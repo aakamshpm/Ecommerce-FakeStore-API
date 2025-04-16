@@ -1,12 +1,44 @@
-# React + Vite
+# Shopi - E-Commerce Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Shopi** is an e-commerce platform built with **React** and **Vite**, using **Firebase Authentication** for login and **Platzi Fake Store API** for products. It’s deployed on **Vercel**.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Clone the repo:**
 
-## Expanding the ESLint configuration
+   ```bash
+   git clone https://github.com/your-username/shopi.git
+   ```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Install dependencies:**
+
+   ```bash
+   cd shopi
+   npm install
+   ```
+
+3. **Run the app:**
+
+   ```bash
+   npm run dev
+   ```
+
+   Visit `http://localhost:3000` to start using it.
+
+4. **Firebase login:**
+   To log in, use the following credentials:
+
+   Email: shopitest@gmail.com
+
+   Password: 123456
+
+## Technologies Used
+
+- **React** & **Vite**: For fast and interactive UI.
+- **Firebase Authentication**: To handle user login.
+- **Platzi Fake Store API**: For product data.
+- **Tailwind CSS**: For clean styling.
+
+## Deployment
+
+The app is deployed on **Vercel**. You can view it live at [Shopi Demo](https://ecommerce-fake-store-api-three.vercel.app/).
