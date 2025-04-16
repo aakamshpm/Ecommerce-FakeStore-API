@@ -7,7 +7,7 @@
 1. **Clone the repo:**
 
    ```bash
-   git clone https://github.com/your-username/shopi.git
+   git clone https://github.com/aakamshpm/Ecommerce-FakeStore-API.git
    ```
 
 2. **Install dependencies:**
@@ -23,7 +23,7 @@
    npm run dev
    ```
 
-   Visit `http://localhost:3000` to start using it.
+   Visit `http://localhost:5173` to start using it.
 
 4. **Firebase login:**
    To log in, use the following credentials:
