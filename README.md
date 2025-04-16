@@ -13,7 +13,7 @@
 2. **Install dependencies:**
 
    ```bash
-   cd shopi
+   cd Ecommerce-FakeStore-API
    npm install
    ```
 
