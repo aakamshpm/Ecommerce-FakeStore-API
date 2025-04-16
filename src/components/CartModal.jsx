@@ -30,10 +30,10 @@ const CartModal = ({ cartItems, onClose }) => {
   }, 0);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-end">
-      <div className="bg-white top-12 right-2 rounded-md relative shadow w-[25%] h-[80%] border-black border-[1px] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-end px-2 sm:px-4">
+      <div className="bg-white top-10 right-2 rounded-md relative shadow w-full sm:w-[70%] md:w-[50%] lg:w-[35%] xl:w-[25%] h-[70%] border-black border-[1px] flex flex-col">
         <div className="flex justify-between p-4 items-center">
-          <h1 className="text-2xl font-semibold">My Cart</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold">My Cart</h1>
           <IoClose
             onClick={onClose}
             className="h-6 w-6 text-white cursor-pointer hover:scale-105 bg-black rounded-full"
@@ -42,7 +42,6 @@ const CartModal = ({ cartItems, onClose }) => {
 
         <div className="w-full h-[1px] bg-black opacity-20" />
 
-        {/* Product display  */}
         <div className="flex-1 overflow-y-auto px-4">
           {cartProducts.map((product) => (
             <div
@@ -59,7 +58,7 @@ const CartModal = ({ cartItems, onClose }) => {
                 <p className="text-xs text-gray-500 line-clamp-2">
                   {product.description}
                 </p>
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex items-center gap-2 mt-2 flex-wrap">
                   <button
                     className="px-2 py-1 bg-gray-200 rounded cursor-pointer"
                     onClick={() => dispatch(reduceItemFromCart(product.id))}
@@ -87,7 +86,6 @@ const CartModal = ({ cartItems, onClose }) => {
           ))}
         </div>
 
-        {/* Checkout Section */}
         <div className="p-4 border-t">
           <div className="flex justify-between mb-3">
             <p className="font-medium">Total:</p>

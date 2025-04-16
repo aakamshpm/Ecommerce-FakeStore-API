@@ -55,7 +55,7 @@ const ProductsDisplay = ({ data, isError, isLoading, isFetching, error }) => {
         onSearch={onSearch}
       />
 
-      <div className="grid grid-cols-4 justify-center mt-8 w-[60em] place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8 w-full max-w-[60em] mx-auto place-items-center px-4">
         {filteredProducts?.map((product, i) => {
           const isInCart = !!cartItems[product.id];
           return (

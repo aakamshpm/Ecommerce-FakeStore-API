@@ -14,7 +14,7 @@ const Orders = () => {
   );
 
   return (
-    <div className="p-6 w-5xl mx-auto">
+    <div className="p-6 w-full max-w-5xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
 
       {sortedOrders.length === 0 && (
@@ -44,7 +44,7 @@ const Orders = () => {
 
           {/* Product List */}
           {expandedOrderId === order.order_id && (
-            <div className=" border-t p-4 space-y-3">
+            <div className="border-t p-4 space-y-3">
               {order.products.map((product) => (
                 <div
                   key={product.id}

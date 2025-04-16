@@ -73,7 +73,7 @@ const Navbar = () => {
               </Link>
               <button
                 onClick={() => dispatch(toggleCart())}
-                className="relative flex items-center gap-1"
+                className="flex items-center gap-1 cursor-pointer"
               >
                 <FiShoppingCart size={22} />
                 <span className="text-sm">{Object.keys(cartItems).length}</span>
@@ -87,9 +87,19 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <Link to="/login" className="text-base">
-              Login
-            </Link>
+            <>
+              <button
+                onClick={() => dispatch(toggleCart())}
+                className="flex items-center gap-1 cursor-pointer"
+              >
+                <FiShoppingCart size={22} />
+                <span className="text-sm">{Object.keys(cartItems).length}</span>
+              </button>
+
+              <Link to="/login" className="text-base">
+                Login
+              </Link>
+            </>
           )}
 
           {/* Mobile menu toggle */}

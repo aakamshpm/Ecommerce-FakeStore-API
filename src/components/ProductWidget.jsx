@@ -15,7 +15,7 @@ const ProductWidget = ({ product, isInCart, setSelectedProduct }) => {
   return (
     <div
       onClick={() => setSelectedProduct(product)}
-      className="flex flex-col p-2 h-[300px] cursor-pointer transition-transform duration-300 hover:scale-105"
+      className="flex flex-col w-full max-w-[240px] p-2 h-[320px] cursor-pointer transition-transform duration-300 hover:scale-105"
     >
       <div className="relative w-full h-[200px]">
         <img
@@ -29,25 +29,25 @@ const ProductWidget = ({ product, isInCart, setSelectedProduct }) => {
             fill="white"
             color="black"
             size={30}
-            className="absolute top-2 right-2 cursor-pointer hover:scale-105"
+            className="absolute top-2 right-2 cursor-pointer hover:scale-105 z-10"
             onClick={handleAddCart}
           />
         ) : (
           <TiTick
             color="white"
             size={30}
-            className="absolute top-2 right-2 cursor-pointer bg-black rounded-full"
+            className="absolute top-2 right-2 cursor-pointer bg-black rounded-full z-10"
           />
         )}
 
-        <p className="absolute bottom-2 left-2 bg-gray-200 bg-opacity-60 text-black text-xs px-2 py-1 rounded">
+        <p className="absolute bottom-2 left-2 bg-gray-200 bg-opacity-60 text-black text-xs px-2 py-1 rounded z-10">
           {product.category.name}
         </p>
       </div>
 
-      <div className="flex flex-col w-full">
-        <p>{product.title}</p>
-        <p>$ {product.price}</p>
+      <div className="flex flex-col w-full mt-2 text-sm">
+        <p className="font-medium truncate">{product.title}</p>
+        <p className="text-gray-800 font-semibold">$ {product.price}</p>
       </div>
     </div>
   );

@@ -48,15 +48,14 @@ const Checkout = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-8">
-      <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+    <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Checkout</h1>
 
-      <div className="w-[50em] border border-black rounded-lg shadow-lg p-6 space-y-6">
-        {/* Cart Items Section */}
+      <div className="w-full max-w-5xl border border-black rounded-lg shadow-lg p-4 sm:p-6 space-y-6">
         {cartProducts.map((product) => (
           <div
             key={product.id}
-            className="flex justify-between items-center border-b border-gray-200 py-4"
+            className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-200 py-4 gap-4"
           >
             <div className="flex items-center gap-4">
               <img
@@ -65,12 +64,16 @@ const Checkout = () => {
                 className="w-16 h-16 object-cover rounded"
               />
               <div>
-                <h2 className="font-semibold text-lg">{product.title}</h2>
+                <h2 className="font-semibold text-base sm:text-lg">
+                  {product.title}
+                </h2>
               </div>
             </div>
-            <div className="text-right">
-              <p className="font-semibold">Qty: {cartItems[product.id]}</p>
-              <p className="text-black">
+            <div className="text-left sm:text-right">
+              <p className="font-semibold text-sm sm:text-base">
+                Qty: {cartItems[product.id]}
+              </p>
+              <p className="text-black text-sm sm:text-base">
                 $ {product.price * cartItems[product.id]}
               </p>
             </div>
@@ -79,8 +82,10 @@ const Checkout = () => {
 
         {/* User Info Section */}
         <div className="border-t border-black pt-4">
-          <h2 className="text-xl font-semibold mb-4">Customer Details</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">
+            Customer Details
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
               placeholder="Full Name"
@@ -120,9 +125,9 @@ const Checkout = () => {
           ></textarea>
         </div>
 
-        <div className="flex justify-between items-center pt-4 border-t border-black">
-          <h2 className="text-xl font-semibold">Total:</h2>
-          <h2 className="text-xl font-bold">$ {totalPrice}</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-4 border-t border-black gap-2 sm:gap-0">
+          <h2 className="text-lg sm:text-xl font-semibold">Total:</h2>
+          <h2 className="text-lg sm:text-xl font-bold">$ {totalPrice}</h2>
         </div>
 
         <button
